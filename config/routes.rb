@@ -44,11 +44,15 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 #ユーザーのルーティング
     root to: 'public/homes#top'
     get '/about' => 'public/homes#about', as: 'about'
-    get 'users/show' => 'public/users#show' , as:'show'
-    get 'users/edit' => 'public/users#edit' , as:'edit_user'
+    get 'users/show' => 'public/users#show' , as: 'show'
+    get 'users/edit' => 'public/users#edit' , as: 'edit'
+    get '/search' => 'searches#search', as: 'search'
     scope module: :public do
-     resources :post_images, only: [:new, :create, :index, :show, :destroy]
-     resources :users, only: [:show, :edit]
+     resources :post_images, only: [:new, :create, :index, :show, :destroy]do
+     resource :favorite, only: [:create, :destroy]
+     resources :post_comments, only: [:create, :destroy]
+  end
+     resources :users, only: [:index,:show, :edit, :update, :destroy]
     end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

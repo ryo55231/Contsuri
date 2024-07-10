@@ -15,6 +15,12 @@
   <body>
       <!--ヘッダー部分-->
   　　<div><%= render 'layouts/header' %></div>
+  　　        <p id="notice"><%= notice %></p>
+           <!-- 7/9に追加したヘッダー下の検索窓 -->
+       <div class="d-flex justify-content-center mb-2">
+          <%= render 'searches/form' %>
+        </div>
+           <!-- ここまで追加 -->
     <%= yield %>
   </body>
 </html>

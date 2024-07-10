@@ -2,7 +2,7 @@
 <%= form_with model: @post_image do |f| %>
   <h4>画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
-  <h4>ショップ名</h4>
+  <h4>タイトル</h4>
   <%= f.text_field :title %>
   <h4>説明</h4>
   <%= f.text_area :body %>
