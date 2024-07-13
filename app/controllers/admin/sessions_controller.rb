@@ -2,10 +2,13 @@
 
 class Admin::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  def after_sign_in_path_for(resource) #管理者のログイン後の遷移先
+  def after_sign_in_path_for(resource) #アドミンのログイン後の遷移先
     admin_root_path
   end
 
+  def after_sign_out_path_for(resource) #アドミンのログアウト後の遷移先
+    new_admin_session_path
+  end
   # GET /resource/sign_in
   # def new
   #   super
