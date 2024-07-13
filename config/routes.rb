@@ -61,7 +61,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     resources :users, only: [:index, :edit, :update]
 
-       resources :post_images, only: [:index, :edit, :update, :destroy]
+    resources :post_images, only: [:index, :edit, :update, :destroy]
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
