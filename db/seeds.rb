@@ -3,5 +3,10 @@
 #
 # Examples:
 #
+Admin.create!(
+   email: 'aaa@aaa',
+   name: 'aaaa',
+   password: "#{ENV['ADMIN_KEY']}"
+)
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
