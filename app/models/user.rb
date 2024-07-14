@@ -57,8 +57,23 @@ end
     end
    end
         #7/9  ここまで追加
+        #7/14ゲストログイン機能のメソッド
+GUEST_USER_EMAIL = "guest@example.com"
+
+  def self.guest
+    find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
+  
+  def guest_user?
+    email == GUEST_USER_EMAIL
+  end
+  #ゲストここまで
+  
   #会員ステータスの記述
-  # def active_for_authentication?
-  #   super && (is_active == true)
-  # end
+   def active_for_authentication?
+     super && (is_active == true)
+   end
 end

@@ -58,8 +58,13 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'followers' => 'relationships#followers', as: 'followers'
  end
     end
-
-  # アドミンのルーディング
+    #ゲストログイン機能のルーティング
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+  #ゲストログイン機能ここまで
+  
+  # アドミンのルーティング
   namespace :admin do
     root to: 'homes#top'
 

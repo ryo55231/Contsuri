@@ -12,6 +12,12 @@ class Public::SessionsController < Devise::SessionsController
   # def create
   #   super
   # end
+    def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
 
   # DELETE /resource/sign_out
   # def destroy
@@ -31,4 +37,25 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+    private
+# アクティブであるかを判断するメソッド
+  def customer_state
+  # 【処理内容1】 入力されたemailからアカウントを1件取得
+  customer = Customer.find_by(email: params[:customer][:email])
+  # 処理内容2
+  # customer.nil?ではないことに注意, ここではcustomerが存在する場合に後続の処理を実行したいため
+      if customer
+    # 処理内容3
+    # unlessではないことに注意, ここではパスワードが正しい場合に後続の処理を実行したいため
+      if customer.valid_password?(params[:customer][:password])
+      #処理内容４
+        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください"
+        redirect_to new_customer_registration_path
+      else
+        flash[:notice] = "項目を入力してください"
+      end
+      else
+      flash[:notice] = "該当するユーザーが見つかりません"
+      end
+  end
 end
