@@ -15,10 +15,10 @@
   </div>
       <div class="row offset-md-3">
     <div class="col-3 mb-4">
-  <%= link_to "退会しない",edit_user_path(@user), :class => "btn btn-primary ms-3" %>
+  <%= link_to "退会しない",user_path(current_user.id), :class => "btn btn-primary ms-3" %>
       </div>
   </div>
     <div class="col-3  offset-md-3 mb-4">
-  <%= link_to "退会する", withdraw_path, method: :patch, :class => "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" }  %>
+  <%= link_to "退会する", withdraw_users_path, method: :patch, :class => "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" }  %>
       </div>
   </div>

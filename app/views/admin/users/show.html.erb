@@ -1,2 +1,27 @@
 <h1>Admin::Users#show</h1>
 <p>Find me in app/views/admin/users/show.html.erb</p>
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  
+          <!--<h3>会員ステータス</h3>-->
+          <!--  %= f.radio_button :is_active, :true %>-->
+          <!--  %= f.label :is_active, "有効" %>-->
+
+          <!--  %= f.radio_button :is_active, :false %>-->
+          <!--  %= f.label :is_active, "退会" %>-->
+        
+</div>
+
+<% @post_images.each do |post_image| %>
+<div>
+  <%= link_to post_image_path(post_image.id) do %>
+    <%= image_tag post_image.get_image %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag post_image.user.get_profile_image(100,100) %></p>
+  <p>ショップ名：<%= post_image.title %></p>
+  <p>説明：<%= post_image.body %></p>
+  <p>ユーザーネーム：<%= post_image.user.name %></p>
+      <p><%= link_to "#{post_image.post_comments.count} コメント", admin_post_image_path(post_image.id) %></p>
+</div>
+<% end %>

@@ -8,7 +8,7 @@
   <% if @post_image.user == current_user %>
   <%= link_to "削除", post_image_path(@post_image), method: :delete %>
   <% end %>
- <% unless defined?(user) && user.present? && !user.guest_user? %><!--ログインしてないといいねコメントできない記述-->
+      <% if user_signed_in? %><!--ログインしてないといいねコメントできない記述-->
       <% if @post_image.favorited_by?(current_user) %>
     <p>
       <%= button_to post_image_favorite_path(@post_image), method: :delete do %>
