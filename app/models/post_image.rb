@@ -15,6 +15,10 @@ class PostImage < ApplicationRecord
     image
   end
   
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  scope :favorite_count, -> {order(favorite: :desc)}
+  
  def favorited_by?(user)
    favorites.exists?(user_id: user.id)
  end

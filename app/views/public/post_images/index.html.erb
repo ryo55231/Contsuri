@@ -1,3 +1,6 @@
+       <%= link_to '新しい順', post_images_path(latest: "true") %>
+       |<%= link_to '古い順', post_images_path(old: "true") %>
+       |<%= link_to 'いいねの多い順', post_images_path(favorite_count: "true") %>
 <% @post_images.each do |post_image| %>
   <div>
     <%= image_tag post_image.get_image %>

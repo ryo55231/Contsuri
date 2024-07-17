@@ -1,0 +1,5 @@
+いいねした一覧
+<% @favorite_posts.each do |post_image|%>
+<%= image_tag post_image.get_image %>
+<%=post_image.title %>
+<% end %>

@@ -13,11 +13,19 @@ class Public::PostImagesController < ApplicationController
     redirect_to post_images_path, notice: "投稿に成功しました"
     else
     render :new
-   end
+    end
   end
 
   def index
-    @post_images = PostImage.all
+   if params[:latest]
+     @post_images = PostImage.latest
+   elsif params[:old]
+     @post_images = PostImage.old
+   elsif params[:favorite_count]
+     @post_images = PostImage.favorite_count
+   else
+     @post_images = PostImage.all
+   end
   end
 
   def show
