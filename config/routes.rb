@@ -49,7 +49,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get '/search' => 'searches#search', as: 'search'
     scope module: :public do
      resources :post_images, only: [:new, :create, :index, :show, :destroy]do
-     resource :favorite, only: [:create, :destroy]
+     resource :favorites, only: [:create, :destroy]
      resources :post_comments, only: [:create, :destroy]
   end
      resources :users, only: [:index,:show, :edit, :update] do

@@ -22,7 +22,7 @@ class Public::PostImagesController < ApplicationController
    elsif params[:old]
      @post_images = PostImage.old
    elsif params[:favorite_count]
-     @post_images = PostImage.favorite_count
+     @post_images =PostImage.find(Favorite.group(:post_image_id).order('count(post_image_id) desc').pluck(:post_image_id))
    else
      @post_images = PostImage.all
    end

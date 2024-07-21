@@ -1,5 +1,1 @@
-    <% @users.each do |user| %>
-        <h4><%= image_tag user.get_profile_image(100,100) %></h4>
-        <h4><%= user.name %></h4>
-        <h4><%= link_to 'Show', user_path(user.id) %></h4>
-        <% end %>
+<%= render 'public/users/index', users: @users %>

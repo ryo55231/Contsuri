@@ -1,27 +1,27 @@
-<div>
+<div class="card-container">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
   <%= image_tag @post_image.get_image %>
-  <p>タイトル：<%= @post_image.title %></p>
-  <p>説明：<%= @post_image.body %></p>
-  <p>投稿ユーザー画像：<%= image_tag @post_image.user.get_profile_image(100,100) %></p>
-  <p>ユーザーネーム：<%= @post_image.user.name %></p>
+  <div class="card-body">
+  <p class="card-title">
+    タイトル：<%= @post_image.title %></p>
+<p class="card-text">
+    説明：<%= @post_image.body %></p>
+    
+        <div class="row">
+        <div class="col-2">
+  投稿ユーザー画像：<%= image_tag @post_image.user.get_profile_image(100,100) %>
+  </div>
+   <div class="col-10">
+    <p class="card-user">
+    ユーザーネーム：<%= @post_image.user.name %></p>
   <p>投稿日：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
   <% if @post_image.user == current_user %>
   <%= link_to "削除", post_image_path(@post_image), method: :delete %>
   <% end %>
       <% if user_signed_in? %><!--ログインしてないといいねコメントできない記述-->
-      <% if @post_image.favorited_by?(current_user) %>
-    <p>
-      <%= button_to post_image_favorite_path(@post_image), method: :delete do %>
-        ♥<%= @post_image.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= button_to post_image_favorite_path(@post_image), method: :post do %>
-        ♡<%= @post_image.favorites.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
+      <div id="favorite-btn-<%= @post_image.id %>">
+      <%= render "public/favorites/favorite-btn", post_image: @post_image %>
+      </div>
 </div>
 
 <div>
@@ -44,5 +44,8 @@
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
   <% end %>
+  </div>
+  </div>
+    </div>
 <% end %><!--ログインしてないといいねコメントできない記述ここまで-->
 </div>

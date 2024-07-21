@@ -1,4 +1,7 @@
-<h1>画像投稿フォーム</h1>
+<div class="card-container">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card-body">
+    <h1>画像投稿フォーム</h1>
  <h4>※ゲストログイン時は投稿できません</h4>
 <%= form_with model: @post_image do |f| %>
   <h4>画像</h4>
@@ -9,3 +12,5 @@
   <%= f.text_area :body %>
   <%= f.submit '投稿' %>
 <% end %>
+</div>
+</div>
