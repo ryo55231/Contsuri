@@ -1,31 +1,28 @@
-<div class="card-list-container py-5">
-    <div class="row">
-        <div class="col-lg-4 mb-3">
+<div class="container">
+    <div class="row mt-5 md-3">
+        <div class="col-lg-4">
           <%= link_to '新しい順', post_images_path(latest: "true") %>
        |<%= link_to '古い順', post_images_path(old: "true") %>
        |<%= link_to 'いいねの多い順', post_images_path(favorite_count: "true") %>
         </div>
-        
+</div>
     <div class="row">
-      <div class="col-lg-8">      
+    <!--<div class="col">-->
 <% @post_images.each do |post_image| %>
-
-  <div class="card mx-auto mt-4 shadow-lg "style="width: 18rem; margin:2rem;">
+<div class="col-lg-4">
+  <div class="card-container p-2 shadow-lg "style="width: 18rem; margin:2rem;">
     <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
      <div class="card-body md-3">
 
     <%= image_tag post_image.user.get_profile_image(50,50) %>
     </div>
-    <div class="col">
-    <p class="card-title"><%= post_image.title %></p>
+    <p class="card-title"><i class="fa-solid fa-image"></i><%= post_image.title %></p>
     <!--<p class="card-text">説明：%= post_image.body %></p>-->
-    <p class="card-user">ユーザーネーム：<%= post_image.user.name %></p>
+    <p class="card-user"><i class="fa-solid fa-user"></i><%= post_image.user.name %></p>
     <% if user_signed_in? %>
-    <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
+    <p><%= link_to "#{post_image.post_comments.count} ", post_image_path(post_image.id) %><i class="fa-solid fa-message"></i></p>
     <% end %>
     </div>
-  </div>
-  </div>
   </div>
 <% end %>
 </div>
