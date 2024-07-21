@@ -1,22 +1,30 @@
-<div class='container px-5 px-sm-0'>
+<div class='container px-0'>
   <div class='row'>
     <div class='col-md-3'>
       <h2>User info</h2>
       <%= render 'info', user: @user%>
   </div>
-    <div class='col-md-8 offset-md-1'>
+     <div class='col-md-9'>
+        <div class="row">
 <% @post_images.each do |post_image| %>
-<div>
-  <%= link_to post_image_path(post_image.id) do %>
-    <%= image_tag post_image.get_image %>
+<div class="col-md-4 mb-4 ">
+  <div class="card-container p-2 shadow-lg "style="width: 18rem%;">
+  <%= link_to post_image_path(post_image.id)do %>
+    <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag post_image.user.get_profile_image(100,100) %></p>
-  <p>ショップ名：<%= post_image.title %></p>
-  <p>説明：<%= post_image.body %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
-      <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
+       <div class="card-body md-3">
+  <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
+  <!--<p>説明：%= post_image.body %></p>-->
+  <!--<p class="card-user">%= image_tag post_image.user.get_profile_image(25,25) %>%= post_image.user.name %></p>-->
+        <p id="favorite-btn-<%= post_image.id %>">
+      <%= render "public/favorites/favorite-btn", post_image: post_image %>
+      </p>
+      <p><i class="fa-solid fa-message"></i><%= link_to "#{post_image.post_comments.count} ", post_image_path(post_image.id) %></p>
 </div>
+    </div>
+    </div>
 <% end %>
     </div>
-</div>
   </div>
+    </div>
+    </div>

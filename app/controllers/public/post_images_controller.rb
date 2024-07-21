@@ -22,7 +22,12 @@ class Public::PostImagesController < ApplicationController
    elsif params[:old]
      @post_images = PostImage.old
    elsif params[:favorite_count]
-     @post_images =PostImage.find(Favorite.group(:post_image_id).order('count(post_image_id) desc').pluck(:post_image_id))
+  # いいねをつけている投稿のみ取得し、いいねの数で並び替える
+     @post_images_with_favorites = PostImage.joins(:favorites).group('post_images.id').order('count(favorites.id) desc')
+  # いいねをつけていない投稿も取得する
+     @post_images_without_favorites = PostImage.left_joins(:favorites).where(favorites: { id: nil }) 
+  # いいねをつけている投稿といいねをつけていない投稿を結合して表示する
+     @post_images = @post_images_with_favorites + @post_images_without_favorites
    else
      @post_images = PostImage.all
    end

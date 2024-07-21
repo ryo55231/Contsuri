@@ -1,37 +1,36 @@
 <div class="card-container">
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-  <%= image_tag @post_image.get_image %>
+  <div class="card w-50 mx-auto mt-4 p-4 shadow-lg">
+    <%= link_to @post_image.get_image, "data-lightbox": @post_image.get_image do %>
+  <%= image_tag @post_image.get_image, class: "card-img-top" %>
+  <% end %>
   <div class="card-body">
   <p class="card-title">
-    タイトル：<%= @post_image.title %></p>
+    <i class="fa-solid fa-image"></i>  <%= @post_image.title %></p>
 <p class="card-text">
-    説明：<%= @post_image.body %></p>
-    
-        <div class="row">
-        <div class="col-2">
-  投稿ユーザー画像：<%= image_tag @post_image.user.get_profile_image(100,100) %>
-  </div>
-   <div class="col-10">
+   <i class="fa-solid fa-pen-fancy"></i>  <%= @post_image.body %></p>
+   
     <p class="card-user">
-    ユーザーネーム：<%= @post_image.user.name %></p>
+      <%= image_tag @post_image.user.get_profile_image(50,50) %><%= @post_image.user.name %></p>
   <p>投稿日：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @post_image.user == current_user %>
-  <%= link_to "削除", post_image_path(@post_image), method: :delete %>
-  <% end %>
+  <div class= "row">
+       <div class="col-10">
       <% if user_signed_in? %><!--ログインしてないといいねコメントできない記述-->
       <div id="favorite-btn-<%= @post_image.id %>">
       <%= render "public/favorites/favorite-btn", post_image: @post_image %>
       </div>
-</div>
-
-<div>
-  <p>コメント件数：<%= @post_image.post_comments.count %></p>
+  <p><i class="fa-solid fa-message"></i><%= @post_image.post_comments.count %></p>
+    <% if @post_image.user == current_user %>
+  <%= link_to "この投稿を削除する", post_image_path(@post_image), method: :delete %>
+  <% end %>
+  </div>
+  <h5>コメント一覧</h5>
+  <div class="col-10">
   <% @post_image.post_comments.each do |post_comment| %>
-    <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
-    <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+    <p><%= post_comment.comment %></p>
+    <p><%= image_tag post_comment.user.get_profile_image(50,50) %>
+    <%= post_comment.user.name %><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
     <% if post_comment.user == current_user %>
-    <%= button_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+    <%= button_to "コメントを削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
     <% end %>
 
 
