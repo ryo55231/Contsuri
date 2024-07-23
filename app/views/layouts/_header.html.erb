@@ -1,5 +1,5 @@
  <!--コンツリヘッド以降　誤字脱字あるかも-->
-    <header>
+    <header class="shadow-sm">
       <nav class="shadow p-3 navbar navbar-expand-lg navbar-light" style="background-color: #CBFFD3;">
         <div class="container-fluid">
           <nav class="navbar bg-body-tertiary">
@@ -19,43 +19,43 @@
  　　　　　　　　　<!--管理者ログインの場合-->
             <% if admin_signed_in? %>
               <li class="nav-item">
-                <%= link_to "会員一覧" ,admin_users_path, class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4"%>
+                <%= link_to "会員一覧" ,admin_users_path, class: "btn btn-outline-success mr-2 md-auto ml-4"%>
               </li>
               <li class="nav-item">
-                <%= link_to "投稿一覧" ,admin_post_images_path, class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4"%>
+                <%= link_to "投稿一覧" ,admin_post_images_path, class: "btn btn-outline-success mr-2 mb-auto ml-4"%>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4", method: :get %>
+                <%= link_to "ログアウト", destroy_admin_session_path, class: "btn btn-outline-success mr-2 mb-auto ml-4", method: :get %>
               </li>
             <!-- エンドユーザーがログインの場合 -->
             <% elsif user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "投稿フォーム",new_post_image_path , class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4"%>
+                <%= link_to "投稿フォーム",new_post_image_path , class: "btn btn-outline-success mr-2 mb-auto ml-4"%>
               </li>
               <li class="nav-item">
-                <%= link_to "マイページ",user_path(current_user.id) , class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4" %>
+                <%= link_to "マイページ",user_path(current_user.id) , class: "btn btn-outline-success mr-2 mb-auto ml-4" %>
               </li>
               <li class="nav-item">
-                <%= link_to "会員一覧",users_path  , class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4"%>
+                <%= link_to "会員一覧",users_path  , class: "btn btn-outline-success mr-2 mb-auto ml-4"%>
               </li>
               <li class="nav-item">
-                <%= link_to "投稿一覧" ,post_images_path  , class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4"%>
+                <%= link_to "投稿一覧" ,post_images_path  , class: "btn btn-outline-success mr-2 mb-auto ml-4"%>
               </li>
               <li class="nav-item">
-                <%= link_to "いいねした投稿一覧" ,favorites_user_path(current_user)  , class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4"%>
+                <%= link_to "いいねした投稿一覧" ,favorites_user_path(current_user)  , class: "btn btn-outline-success mr-2 mb-auto ml-4"%>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path , class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4", method: :get %>
+                <%= link_to "ログアウト", destroy_user_session_path , class: "btn btn-outline-success mr-2 mb-auto ml-4", method: :get %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "アバウト",about_path, class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4" %>
+                <%= link_to "アバウト",about_path, class: "btn btn-outline-success  mr-2 mb-auto ml-4" %>
               </li>
               <li class="nav-item">
-                <%= link_to "新規登録" , new_user_registration_path, class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4" %>
+                <%= link_to "新規登録" , new_user_registration_path, class: "btn btn-outline-success  mr-2 mb-auto ml-4" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-success mt-auto mr-2 mb-auto ml-4" %>
+                <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-success mr-2 mb-auto ml-4" %>
               </li>
             <% end %>
             </ul>

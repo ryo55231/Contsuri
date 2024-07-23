@@ -1,34 +1,60 @@
 <div class="container">
   <div class="row">
-    <div class="col-5">
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% post_images.each do |post_image| %>
-      <tr>
-        <td><%= link_to user_path(post_image.user) do %>
-          <%= image_tag post_image.user.get_profile_image(100,100) %>
-          <% end %>
-        </td>
-        <td><%= link_to post_image.title, post_image_path(post_image.id) %></td>
-        <td><%= post_image.body %></td>
-<!--いいねの部分テンプレート-->
-      <td id="favorite-btn-<%= post_image.id %>">
-      <%= render "public/favorites/favorite-btn", post_image: post_image %>
-      </td>
-<!--ここまで-->
-    <td>コメント数：<%= post_image.post_comments.count %></td>
-      </tr>
+<% post_images.each do |post_image| %>
+<div class="col-lg-4">
+  <div class="card-container p-2 shadow-lg "style="width: 18rem; margin:2rem;">
+        <%= link_to post_image_path(post_image.id)do %>
+    <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
     <% end %>
-  </tbody>
-</table>
+     <div class="card-body md-3">
+
+   
+    
+    <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
+    <!--<p class="card-text">説明：%= post_image.body %></p>-->
+    <p class="card-user"><%= image_tag post_image.user.get_profile_image(50,50) %><%= post_image.user.name %></p>
+            <p id="favorite-btn-<%= post_image.id %>">
+      <%= render "public/favorites/favorite-btn", post_image: post_image %>
+      </p>
+    
+    <p><%= post_image.post_comments.count %><i class="fa-solid fa-message"></i></p>
+
+    </div>
+  </div>
+  </div>
+<% end %>
 </div>
 </div>
-</div>
+<!--    <div class="col-5">-->
+<!--<table class='table table-hover table-inverse'>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th></th>-->
+<!--      <th>Title</th>-->
+<!--      <th>Opinion</th>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--    % post_images.each do |post_image| %>-->
+<!--      <tr>-->
+<!--        <td>%= link_to user_path(post_image.user) do %>-->
+<!--          %= image_tag post_image.user.get_profile_image(100,100) %>-->
+<!--          % end %>-->
+<!--        </td>-->
+<!--        <td>%= link_to post_image.title, post_image_path(post_image.id) %></td>-->
+<!--        <td>%= post_image.body %></td>-->
+<!--いいねの部分テンプレート-->
+<!--      <td id="favorite-btn-%= post_image.id %>">-->
+<!--    %= render "public/favorites/favorite-btn", post_image: post_image %>-->
+<!--      </td>-->
+<!--ここまで-->
+<!--    <td>コメント数：%= post_image.post_comments.count %></td>-->
+<!--      </tr>-->
+<!--    % end %>-->
+<!--  </tbody>-->
+<!--</table>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+    <!--<td>コメント数：%= post_image.post_comments.count %></td>-->

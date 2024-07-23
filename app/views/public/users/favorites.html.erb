@@ -1,5 +1,32 @@
-いいねした投稿一覧
+<!--% @favorite_posts.each do |post_image|%>-->
+<!--%= image_tag post_image.get_image %>-->
+<!--%=post_image.title %>-->
+<!--% end %>-->
+<div class="container">
+  <h5>いいねした投稿一覧</h5>
+　<div class="row">
 <% @favorite_posts.each do |post_image|%>
-<%= image_tag post_image.get_image %>
-<%=post_image.title %>
+<div class="col-lg-4">
+  <div class="card-container p-2 shadow-lg "style="width: 18rem; margin:2rem;">
+        <%= link_to post_image_path(post_image.id)do %>
+    <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
+    <% end %>
+     <div class="card-body md-3">
+
+   
+    
+    <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
+    <!--<p class="card-text">説明：%= post_image.body %></p>-->
+    <p class="card-user"><%= image_tag post_image.user.get_profile_image(50,50) %><%= post_image.user.name %></p>
+            <p id="favorite-btn-<%= post_image.id %>">
+      <%= render "public/favorites/favorite-btn", post_image: post_image %>
+      </p>
+    <% if user_signed_in? %>
+    <p><%= link_to "#{post_image.post_comments.count} ", post_image_path(post_image.id) %><i class="fa-solid fa-message"></i></p>
+    <% end %>
+    </div>
+  </div>
+  </div>
 <% end %>
+</div>
+</div>
