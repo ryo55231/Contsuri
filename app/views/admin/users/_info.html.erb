@@ -1,0 +1,25 @@
+<h5 class="text-dark bg-light p-4 mb-0">プロフィール</h5>
+<div class="form-body bg-white p-4">
+  <%= image_tag user.get_profile_image(100,100) %>
+  
+  <div class="list-group mb-3 mt-4">
+    <div class="list-group-prepend">
+  <span class="list-group-name"><i class="fa-solid fa-user"></i></span>
+  <h4><%= user.name %></h4>
+  <br>
+  <span class="list-group-text"><i class="fa-solid fa-message"></i></span>
+  <%= user.introduction %>
+          <h5>会員ステータス</h5>
+                <%= form_with model: [:admin, @user] do |f| %>
+            <%= f.radio_button :is_active, :true %>
+
+            <%= f.label :is_active, "有効" %>
+
+            <%= f.radio_button :is_active, :false %>
+
+            <%= f.label :is_active, "退会" %>
+<%= f.submit "変更を保存", class:"btn btn-success" %>
+        <% end %>
+            </div>
+</div>
+</div>

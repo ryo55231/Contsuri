@@ -49,7 +49,7 @@ class Public::PostImagesController < ApplicationController
     if current_user.guest_user?
       # ゲストユーザーの場合は投稿を制限する処理を追加する
       # 例えば、リダイレクトやエラーメッセージの表示など
-      redirect_to new_post_image_path, notice:  "ゲストユーザーは投稿できません"
+      redirect_to new_post_image_path, alert:  "ゲストユーザーは投稿できません"
     end
    end
 

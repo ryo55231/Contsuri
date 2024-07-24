@@ -1,13 +1,36 @@
-<h1>Admin::PostImages#index</h1>
-<p>Find me in app/views/admin/post_images/index.html.erb</p>
-<% @post_images.each do |post_images| %>
-<div>
-<p>投稿ユーザー画像：<%= image_tag post_images.user.get_profile_image(100,100) %></p>
-<p>タイトル：<%= post_images.title %></p>
-<p>説明：<%= post_images.body %></p>
-<p>ユーザーネーム：<%= post_images.user.name %></p>
-  <% if user_signed_in? %>
-    <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
+<div class="container">
+    <div class="row mt-5 md-3 ">
+        <div class="col-lg-4 ">
+          <div class="btn-group" role="group" aria-label="Basic outlined example">
+          <button type="button" class="btn btn-outline-success bg-light"><%= link_to '新しい順', post_images_path(latest: "true") %></button>
+       <button type="button" class="btn btn-outline-success bg-light"><%= link_to '古い順', post_images_path(old: "true") %></button>
+       <button type="button" class="btn btn-outline-success bg-light"><%= link_to 'いいねの多い順', post_images_path(favorite_count: "true") %></button>
+        </div>
+</div>
+    <div class="row">
+<% @post_images.each do |post_image| %>
+<div class="col-lg-4 ">
+  <div class="card-container bg-light p-2 shadow-lg "style="width: 18rem; margin:2rem;">
+        <%= link_to admin_post_image_path(post_image.id)do %>
+    <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
     <% end %>
+     <div class="card-body md-3">
+
+   
+    
+    <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
+    <!--<p class="card-text">説明：%= post_image.body %></p>-->
+    <p class="card-user"><%= image_tag post_image.user.get_profile_image(50,50) %><%= post_image.user.name %></p>
+      <!--      <p id="favorite-btn-%= post_image.id %>">-->
+      <!--%= render "public/favorites/favorite-btn", post_image: post_image %>-->
+      <!--</p>-->
+
+    <%= link_to "#{post_image.post_comments.count} ", admin_post_image_path(post_image.id) %><i class="fa-solid fa-message"></i>
+
     </div>
-    <% end %>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+</div>

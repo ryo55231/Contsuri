@@ -53,7 +53,10 @@
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "アバウト",about_path, class: "btn btn-outline-success" %>
+                <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn btn-secondary sign_in", method: :post %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "サイト概要",about_path, class: "btn btn-outline-success" %>
               </li>
               <li class="nav-item">
                 <%= link_to "新規登録" , new_user_registration_path, class: "btn btn-outline-success" %>

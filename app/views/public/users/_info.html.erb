@@ -1,17 +1,35 @@
-<div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <h3><%= @user.name %></h3>
-  <% unless @user.guest_user? %>
-  <% if @user.id == current_user.id %>
-  <p><%= link_to "プロフィール編集",edit_user_path(@user) %></p>
-  <% end %>
-  
-    <% end %>
+<h5 class="text-dark bg-light p-4 mb-0">プロフィール</h5>
+<div class="form-body bg-white p-4">
+  <%= image_tag user.get_profile_image(100,100) %>
+
+  <div class="list-group mb-3 mt-4">
+    <div class="list-group-prepend">
+  <span class="list-group-name"><i class="fa-solid fa-user"></i></span>
+  <h4><%= user.name %></h4>
+  <br>
+  <span class="list-group-text"><i class="fa-solid fa-message"></i></span>
+  <%= user.introduction %>
+  <div class='row mt-4'>
+  <% unless user.guest_user? %>
+  <% if user.id == current_user.id %>
+<!--<div class='row mt-4'>-->
+  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+   <% end %>
+   <% end %>
+
+
+  <% unless user.guest_user? %>
        <% if current_user != user %>
           <% if current_user.following?(user) %>
-            <%= link_to 'フォロー外す', user_relationships_path(user.id), method: :delete, class: "btn btn-default" %>
+            <%= link_to 'フォロー外す', user_relationships_path(user.id), method: :delete, class: "btn btn-info" %>
           <% else %>
             <%= link_to 'フォローする', user_relationships_path(user.id), method: :POST , class: "btn btn-primary" %>
             <% end %>
             <% end %>
+          <% end %>
+                    <% end %>
+            </div>
+</div>
+</div>
 </div>

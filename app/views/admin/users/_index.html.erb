@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col"><table class='table bg-light'>
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>名前</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_profile_image(100,100) %></td>
+        <td><%= user.name %></td>
+         <td>フォロー数: <%= user.followings.count %></td>
+         <td>フォロワー数: <%= user.followers.count %></td>
+
+        <td><%= link_to 'Show', admin_user_path(user.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
