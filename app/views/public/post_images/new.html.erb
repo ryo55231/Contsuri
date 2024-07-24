@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg bg-light rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">画像投稿フォーム</h5>
       <div class="form-body p-4">
  <h4>※ゲストログイン時は投稿できません</h4>
@@ -13,7 +13,7 @@
   <%= f.text_field :title , class: "form-control", placeholder: "画像タイトル" %>
   </div>
 
-  <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "投稿の説明文" %>
+  <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "説明文" %>
    <hr>
           <%= f.submit '投稿', class: "btn btn-lg btn-block btn-info mt-4" %>
         <% end %>

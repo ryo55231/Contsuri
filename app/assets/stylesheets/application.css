@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+nav li {
+ margin-right: 10px;
+}
+
+.bg-img{
+  background-image: url('CorkBoard01.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 400px;
+  width: 100%;
+  z-index: -1;
+}

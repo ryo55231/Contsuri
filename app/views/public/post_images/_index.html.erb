@@ -2,7 +2,7 @@
   <div class="row">
 <% post_images.each do |post_image| %>
 <div class="col-lg-4">
-  <div class="card-container p-2 shadow-lg "style="width: 18rem; margin:2rem;">
+  <div class="card-container p-2 bg-light shadow-lg "style="width: 18rem; margin:2rem;">
         <%= link_to post_image_path(post_image.id)do %>
     <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
     <% end %>
