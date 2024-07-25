@@ -34,7 +34,7 @@
             <!-- エンドユーザーがログインの場合 -->
             <% elsif user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "投稿フォーム",new_post_image_path , class: "btn btn-outline-success"%>
+                <%= link_to "投稿フォーム",new_post_image_path , class: "btn btn-outline-success", data: {turbolinks: "false"}  %>
               </li>
               <li class="nav-item">
                 <%= link_to "マイページ",user_path(current_user.id) , class: "btn btn-outline-success" %>
@@ -62,7 +62,7 @@
                 <%= link_to "新規登録" , new_user_registration_path, class: "btn btn-outline-success" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-success" %>
+                <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-success " %>
               </li>
             <% end %>
             </ul>

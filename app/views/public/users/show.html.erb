@@ -16,10 +16,10 @@
   <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
   <!--<p>説明：%= post_image.body %></p>-->
   <!--<p class="card-user">%= image_tag post_image.user.get_profile_image(25,25) %>%= post_image.user.name %></p>-->
-        <p id="favorite-btn-<%= post_image.id %>">
-      <%= render "public/favorites/favorite-btn", post_image: post_image %>
+        <span id="favorite-btn-<%= post_image.id %>">
+      <%= render "public/favorites/favorite-btn", post_image: post_image %></span>
 
-      | <i class="fa-solid fa-message"></i> <%= post_image.post_comments.count %></p>
+      | <span><i class="fa-solid fa-message"></i> <%= post_image.post_comments.count %></span>
 </div>
     </div>
     </div>

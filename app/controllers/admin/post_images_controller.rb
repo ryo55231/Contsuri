@@ -1,5 +1,5 @@
 class Admin::PostImagesController < ApplicationController
-  before_action :authenticate_admin!
+  #before_action :authenticate_admin!
   def index
    @post_images = PostImage.all
   end

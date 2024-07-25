@@ -16,13 +16,22 @@
 nav li {
  margin-right: 10px;
 }
+.btn {
+  display: inline-block;
+  padding: 0.8em 3em;
+  background-color: #34b496; /* 背景色 */
+  box-shadow: 0 5px 0 #298c75; /* 影の太さ・色 */
+  border-radius: 60px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+}
 
-.bg-img{
-  background-image: url('CorkBoard01.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  height: 400px;
-  width: 100%;
-  z-index: -1;
+.btn:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+.btn:active {
+  box-shadow: none;
+  transform: translateY(5px);
 }

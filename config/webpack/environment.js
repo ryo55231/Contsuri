@@ -1,3 +1,5 @@
+require("dotenv").config(); // 7/25追加
+
 const { environment } = require('@rails/webpacker')
 
 const webpack = require('webpack')
