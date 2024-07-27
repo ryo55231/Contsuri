@@ -17,8 +17,6 @@ class Public::PostImagesController < ApplicationController
   end
 
   def index
-      respond_to do |format|
-      format.html do
    if params[:latest]
      @post_images = PostImage.latest
    elsif params[:old]
@@ -27,18 +25,20 @@ class Public::PostImagesController < ApplicationController
   # いいねをつけている投稿のみ取得し、いいねの数で並び替える
      @post_images_with_favorites = PostImage.joins(:favorites).group('post_images.id').order('count(favorites.id) desc')
   # いいねをつけていない投稿も取得する
-     @post_images_without_favorites = PostImage.left_joins(:favorites).where(favorites: { id: nil }) 
+     @post_images_without_favorites = PostImage.left_joins(:favorites).where(favorites: { id: nil })
   # いいねをつけている投稿といいねをつけていない投稿を結合して表示する
      @post_images = @post_images_with_favorites + @post_images_without_favorites
    else
+      respond_to do |format|
+      format.html do
      @post_images = PostImage.all
    end
          format.json do
         @post_images = PostImage.all
       end
-    end
   end
-  end
+ end
+ end
 
   def show
     @post_image = PostImage.find(params[:id])
