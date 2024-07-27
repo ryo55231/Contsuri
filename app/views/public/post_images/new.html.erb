@@ -12,6 +12,20 @@
             </div>
   <%= f.text_field :title , class: "form-control", placeholder: "画像タイトル" %>
   </div>
+  <!--郵便番号の入力フォーム-->
+      <div class="input-group mb-3 mt-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-tenge-sign"></i></span>
+      </div>
+      <%= text_field_tag :zipcode, nil, class: "form-control", placeholder: "郵便番号" %>
+    </div>
+  <!--住所の入力フォーム-->
+        <div class="input-group mb-3 mt-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+      </div>
+      <%= f.text_field :address, class: "form-control", placeholder: "住所" %>
+    </div>
 
   <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "説明文" %>
    <hr>
@@ -21,3 +35,4 @@
 </div>
 </div>
 </div>
+<%= javascript_pack_tag "jpostal",  'data-turbolinks-track': 'reload' %>

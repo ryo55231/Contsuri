@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="row mt-5 md-3 ">
-        <div class="col-lg-4 ">
-          <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <button type="button" class="btn btn-outline-success bg-light"><%= link_to '新しい順', post_images_path(latest: "true") %></button>
-       <button type="button" class="btn btn-outline-success bg-light"><%= link_to '古い順', post_images_path(old: "true") %></button>
-       <button type="button" class="btn btn-outline-success bg-light"><%= link_to 'いいねの多い順', post_images_path(favorite_count: "true") %></button>
-        </div>
-</div>
+<!--    <div class="row mt-5 md-3 ">-->
+<!--        <div class="col-lg-4 ">-->
+<!--          <div class="btn-group" role="group" aria-label="Basic outlined example">-->
+<!--          <button type="button" class="btn btn-outline-success bg-light"><%= link_to '新しい順', post_images_path(latest: "true") %></button>-->
+<!--       <button type="button" class="btn btn-outline-success bg-light"><%= link_to '古い順', post_images_path(old: "true") %></button>-->
+<!--       <button type="button" class="btn btn-outline-success bg-light"><%= link_to 'いいねの多い順', post_images_path(favorite_count: "true") %></button>-->
+<!--        </div>-->
+<!--</div>-->
     <div class="row">
 <% @post_images.each do |post_image| %>
 <div class="col-lg-4 ">

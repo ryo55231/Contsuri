@@ -21,7 +21,7 @@
                 <%= render "public/favorites/favorite-btn", post_image: @post_image %></span>
                 <span> ｜ <i class="fa-solid fa-message"></i> <%= @post_image.post_comments.count %></span>
               <% end %>
-                <p><%= link_to "この投稿を削除する", admin_post_image_path(@post_image), class:"text-dark", method: :delete %></p>
+                <p><%= link_to "この投稿を削除する", admin_post_image_path(@post_image), class:"text-dark", method: :delete , data: { confirm: "本当に削除しますか？" } %></p>
           </div>
         </div>
         <hr>
@@ -35,7 +35,7 @@
                   <p><%= post_comment.user.name %></p>
                   <p><%= post_comment.comment %></p>
                   <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
-                    <%= button_to "コメントを削除",  admin_post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, class: "btn btn-danger pull-right"  %>
+                    <%= button_to "コメントを削除",  admin_post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, class: "btn btn-danger pull-right" , data: { confirm: "本当に削除しますか？" }  %>
                 </div>
               </div>
             <% end %>

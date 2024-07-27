@@ -6,7 +6,7 @@ class PostImage < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  #7/25API地図を使うための
+  #7/25API地図を使うための表記
   validates :address, presence: true
 
   geocoded_by :address

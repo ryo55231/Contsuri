@@ -64,6 +64,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
  end
+      resource :map, only: [:show]
     end
     #ゲストログイン機能のルーティング
   devise_scope :user do

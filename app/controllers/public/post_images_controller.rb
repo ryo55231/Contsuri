@@ -17,6 +17,8 @@ class Public::PostImagesController < ApplicationController
   end
 
   def index
+      respond_to do |format|
+      format.html do
    if params[:latest]
      @post_images = PostImage.latest
    elsif params[:old]
@@ -31,6 +33,11 @@ class Public::PostImagesController < ApplicationController
    else
      @post_images = PostImage.all
    end
+         format.json do
+        @post_images = PostImage.all
+      end
+    end
+  end
   end
 
   def show
