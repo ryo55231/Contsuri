@@ -2,28 +2,28 @@
   <div class='row'>
     <div class='card col-md-3 bg-light p-2'>
       <%= render 'info', user: @user%>
-  </div>
+    </div>
      <div class='col-md-9'>
-                 <h5><span class= "bg-light p-2 ">この会員の投稿一覧</span></h5><br>
-        <div class="row">
-<% @post_images.each do |post_image| %>
-<div class="col-md-4 mb-4 ">
-  <div class="card-container p-2 bg-light shadow-lg "style="width: 18rem%;">
-  <%= link_to admin_post_image_path(post_image.id)do %>
-    <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
-  <% end %>
-       <div class="card-body md-3">
-  <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
+      <h5><span class= "bg-light p-2 ">この会員の投稿一覧</span></h5><br>
+       <div class="row">
+        <% @post_images.each do |post_image| %>
+        <div class="col-md-4 mb-4 ">
+          <div class="card-container p-2 bg-light shadow-lg "style="width: 18rem%;">
+            <%= link_to admin_post_image_path(post_image.id)do %>
+              <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
+            <% end %>
+           <div class="card-body md-3">
+            <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
   <!--<p>説明：%= post_image.body %></p>-->
   <!--<p class="card-user">%= image_tag post_image.user.get_profile_image(25,25) %>%= post_image.user.name %></p>-->
 
 
-      <i class="fa-solid fa-message"></i> <%= post_image.post_comments.count %></p>
-</div>
+             <i class="fa-solid fa-message"></i> <%= post_image.post_comments.count %></p>
+           </div>
+          </div>
+        </div>
+             <% end %>
+      </div>
+     </div>
     </div>
-    </div>
-<% end %>
-    </div>
-  </div>
-    </div>
-    </div>
+   </div>

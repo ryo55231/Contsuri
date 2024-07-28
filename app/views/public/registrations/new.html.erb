@@ -1,6 +1,6 @@
 <div class="card-container">
   <div class="row no-gutters">
-  <div class="card col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+   <div class="card col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
     <h2 class="text-dark bg-light py-4 mb-0">新規登録</h2>
       <div class="form-body p-4">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -36,12 +36,12 @@
             <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form-control" %>
           </div>
 
-  <div class="actions">
-    <%= f.submit "新規登録", class: "btn btn-block btn-info mt-5" %>
-  </div>
-<% end %>
-</div>
+          <div class="actions">
+            <%= f.submit "新規登録", class: "btn btn-block btn-info mt-5" %>
+          </div>
+            <% end %>
+      </div>
 <%= render "public/shared/links" %>
-</div>
-</div>
+    </div>
+  </div>
 </div>

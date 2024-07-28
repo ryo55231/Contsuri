@@ -1,36 +1,36 @@
 <div class="container">
-    <div class="row mt-5 md-3 ">
-        <div class="col-lg-4 ">
-          <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <button type="button" class="btn btn-outline-success bg-light"><%= link_to '新しい順', post_images_path(latest: "true") %></button>
-       <button type="button" class="btn btn-outline-success bg-light"><%= link_to '古い順', post_images_path(old: "true") %></button>
-       <button type="button" class="btn btn-outline-success bg-light"><%= link_to 'いいねの多い順', post_images_path(favorite_count: "true") %></button>
-        </div>
-</div>
-    <div class="row">
-<% @post_images.each do |post_image| %>
-<div class="col-lg-4 ">
-  <div class="card-container bg-light p-2 shadow-lg "style="width: 18rem; margin:2rem;">
-        <%= link_to post_image_path(post_image.id)do %>
-    <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
-    <% end %>
-     <div class="card-body md-3">
-
-
-
-    <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
-    <!--<p class="card-text">説明：%= post_image.body %></p>-->
-    <p class="card-user"><%= image_tag post_image.user.get_profile_image(50,50) %><%= post_image.user.name %></p>
-            <p id="favorite-btn-<%= post_image.id %>">
-      <%= render "public/favorites/favorite-btn", post_image: post_image %>
-      </p>
-    <% if user_signed_in? %>
-    <p><%= link_to "#{post_image.post_comments.count} ", post_image_path(post_image.id) %><i class="fa-solid fa-message"></i></p>
-    <% end %>
+ <div class="row mt-5 md-3 ">
+   <div class="col-lg-4 ">
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+     <button type="button" class="btn btn-outline-success bg-light"><%= link_to '新しい順', post_images_path(latest: "true") %></button>
+     <button type="button" class="btn btn-outline-success bg-light"><%= link_to '古い順', post_images_path(old: "true") %></button>
+     <button type="button" class="btn btn-outline-success bg-light"><%= link_to 'いいねの多い順', post_images_path(favorite_count: "true") %></button>
     </div>
+   </div>
+  <div class="row">
+     <% @post_images.each do |post_image| %>
+      <div class="col-lg-4 ">
+       <div class="card-container bg-light p-2 shadow-lg "style="width: 18rem; margin:2rem;">
+        <%= link_to post_image_path(post_image.id)do %>
+        <%= image_tag post_image.get_image, class: "card-img-top", width: 300, height: 200 %>
+        <% end %>
+         <div class="card-body md-3">
+
+
+
+         <p class="card-title"><i class="fa-solid fa-image"></i>  <%= post_image.title %></p>
+       <!--<p class="card-text">説明：%= post_image.body %></p>-->
+         <p class="card-user"><%= image_tag post_image.user.get_profile_image(50,50) %><%= post_image.user.name %></p>
+            <p id="favorite-btn-<%= post_image.id %>">
+          <%= render "public/favorites/favorite-btn", post_image: post_image %>
+         </p>
+          <% if user_signed_in? %>
+          <p><%= link_to "#{post_image.post_comments.count} ", post_image_path(post_image.id) %><i class="fa-solid fa-message"></i></p>
+          <% end %>
+         </div>
+       </div>
+      </div>
+      <% end %>
   </div>
-  </div>
-<% end %>
-</div>
-</div>
+ </div>
 </div>
