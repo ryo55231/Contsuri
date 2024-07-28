@@ -50,10 +50,10 @@ class Public::SessionsController < Devise::SessionsController
     # unlessではないことに注意, ここではパスワードが正しい場合に後続の処理を実行したいため
       if user.valid_password?(params[:user][:password])
       #処理内容４
-       flash[:alert] = "退会済みです。再度ご登録をしてご利用ください"
+       flash.now[:alert] = "退会済みです。再度ご登録をしてご利用ください"
         redirect_to new_user_registration_path
       else
-        flash[:alert] = "項目を入力してください"
+        flash.now[:alert] = "項目を入力してください"
       end
      end
   end

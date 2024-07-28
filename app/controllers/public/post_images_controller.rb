@@ -12,6 +12,7 @@ class Public::PostImagesController < ApplicationController
     if @post_image.save
     redirect_to post_images_path, notice: "投稿に成功しました"
     else
+      flash.now[:alert] = "投稿に失敗しました　項目をもう一度確認してください"
     render :new
     end
   end

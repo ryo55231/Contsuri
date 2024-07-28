@@ -2,7 +2,7 @@
   <% if @users.exists? %>
 <table class='table'>
   <tbody>
-    <%= render 'users/index', users: @users %>
+    <%= render 'public/users/index', users: @users %>
   </tbody>
   <% else %>
   <p>ユーザーはいません</p>

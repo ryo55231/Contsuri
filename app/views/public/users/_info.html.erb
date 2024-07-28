@@ -9,6 +9,13 @@
   <br>
   <span class="list-group-text"><i class="fa-solid fa-message"></i></span>
   <%= user.introduction %>
+  	  <p>follows</p>
+	  <p><%= link_to user.followings.count, user_followings_path(user) %> </p>
+  </br>
+    <tr>
+	  <p>followers</p>
+	  <p><%= link_to user.followers.count, user_followers_path(user) %></p>
+  </br>
   <div class='row mt-4'>
   <% unless user.guest_user? %>
   <% if user.id == current_user.id %>

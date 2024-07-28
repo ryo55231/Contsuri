@@ -20,11 +20,12 @@ nav li {
   display: inline-block;
   padding: 0.8em 3em;
   background-color: #34b496; /* 背景色 */
-  box-shadow: 0 5px 0 #298c75; /* 影の太さ・色 */
+  box-shadow: 0 5px 0 #AAAAAA; /* 影の太さ・色 */
   border-radius: 60px;
   color: #fff;
   cursor: pointer;
   text-decoration: none; /* 文字の下線を消す */
+  transition: all 0.3s;
 }
 
 .btn:hover {

@@ -1,11 +1,11 @@
 <%- if controller_name != 'sessions' %>
-  <div class="row justify-content-end">
-    <div class="col-lg-8 px-sm-0 offset-sm-1">
+  <div class="row">
+    <div class="col-lg-8 px-sm-0 offset-sm-1 md-1">
       <a>既に登録済みの方は</a>
     </div>
   </div>
   <div class="row justify-content-end">
-    <div class="col-lg-8 px-sm-0 offset-sm-1 mb-5">
+    <div class="col-lg-8 px-sm-0 offset-sm-3 mb-5">
       <u><%= link_to "こちら", new_session_path(resource_name), class:"font-weight-bold" %></u>からログインしてください。
     </div>
   </div>
@@ -13,7 +13,7 @@
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <div class="row">
-    <div class="col-lg-8 px-sm-0 offset-sm-1 md-">
+    <div class="col-lg-8 px-sm-0 offset-sm-1 ">
       <a>会員登録がお済みでない方は</a>
     </div>
   </div>

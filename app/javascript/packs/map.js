@@ -47,7 +47,7 @@ async function initMap() {
             <p class="lead m-0 font-weight-bold">${userName}</p>
           </div>
           <div class="mb-3">
-            <img class="thumbnail" src="${postImage}" loading="lazy">
+            <img class="thumbnail" src="${postImage}"  width="200" height="auto"　loading="lazy">
           </div>
           <div>
             <h1 class="h4 font-weight-bold">${titleName}</h1>
@@ -56,12 +56,12 @@ async function initMap() {
           </div>
         </div>
       `;
-      
+
       const infowindow = new google.maps.InfoWindow({
         content: contentString,
         ariaLabel: titleName,
       });
-      
+
       marker.addListener("click", () => {
           infowindow.open({
           anchor: marker,
