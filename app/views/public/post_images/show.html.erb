@@ -20,7 +20,7 @@
               <span><%= image_tag @post_image.user.get_profile_image(30,30), class: "img-fluid rounded-circle" %><%= @post_image.user.name %> ｜ <span>
               <span><i class="fa-solid fa-calendar-days"></i><%= @post_image.created_at.strftime('%Y/%m/%d') %> ｜ </span>
 
-              <% if user_signed_in? %><!--ログインしてないといいねコメントできない記述-->
+              <% if user_signed_in? %><!--ログインしてないといいねコメントできない記述 ゲストログインできるので意味なし-->
                 <span id="favorite-btn-<%= @post_image.id %>">
                 <%= render "public/favorites/favorite-btn", post_image: @post_image %></span>
                 <span> ｜ <i class="fa-solid fa-message"></i> <%= @post_image.post_comments.count %></span>
