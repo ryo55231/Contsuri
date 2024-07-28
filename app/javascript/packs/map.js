@@ -33,7 +33,7 @@ async function initMap() {
       const address = item.address;
       const body = item.body;
 
-      const marker = new google.maps.marker.AdvancedMarkerElement ({
+      const marker = new AdvancedMarkerElement ({
         position: { lat: latitude, lng: longitude },
         map,
         title: titleName,//画像タイトルの記述
