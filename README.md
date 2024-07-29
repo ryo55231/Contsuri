@@ -43,6 +43,9 @@
 <!-- - 〜な時という記載方法で、2つ以上記載しましょう -->
 ​
 ## 設計書
+### UIflows
+![コンツリuser　UIflows-エンドユーザー drawio](https://github.com/user-attachments/assets/09322067-b7c3-4586-8f8e-a0632b654958)
+
 ### ER図
 ![コンツリER図 drawio](https://github.com/user-attachments/assets/0082edc2-74f9-4e0f-a097-8dc6646833f8)
 
@@ -50,7 +53,7 @@
 [テーブル定義書リンク](https://docs.google.com/spreadsheets/d/1Ln1Azvi3CGtUQQK-Xba58elw6bhNRBIHow0slVJ3sXc/edit?gid=0#gid=0)
 
 ### アプリケーション詳細設計
-![コンツリ_アプリケーション詳細設計  - 詳細設計](https://github.com/user-attachments/assets/651c3c7f-da8f-47a8-aff5-22b26ce2bdcc)
+[コンツリ_アプリケーション詳細設計  - 詳細設計DLリンク.pdf](https://github.com/user-attachments/files/16405794/_.-.DL.pdf)
 <!-- 【補足説明】 -->
 <!-- - テーマ提出時点では不要です。 -->
 <!-- - 当項目には「後ほど作成予定」と記載しましょう。 -->
