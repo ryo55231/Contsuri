@@ -46,6 +46,11 @@
 ### ER図
 ![コンツリER図 drawio](https://github.com/user-attachments/assets/0082edc2-74f9-4e0f-a097-8dc6646833f8)
 
+### テーブル定義書
+[テーブル定義書リンク](https://docs.google.com/spreadsheets/d/1Ln1Azvi3CGtUQQK-Xba58elw6bhNRBIHow0slVJ3sXc/edit?gid=0#gid=0)
+
+### アプリケーション詳細設計
+[コンツリ_アプリケーション詳細設計  - 詳細設計.pdf](https://github.com/user-attachments/files/16405710/_.-.pdf)
 <!-- 【補足説明】 -->
 <!-- - テーマ提出時点では不要です。 -->
 <!-- - 当項目には「後ほど作成予定」と記載しましょう。 -->
