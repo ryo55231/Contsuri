@@ -18,8 +18,9 @@
   </head>
 
   <body class="d-flex flex-column vh-100"style="background-color: #FFCC99;">
-      <!--ヘッダー部分-->
+      <!--ヘッダーの部分テンプレート-->
   　　<div><%= render 'layouts/header' %></div>
+  　　<!--ここまで-->
 
   <h3 class='text-light bg-success mx-auto'><%= flash[:notice] %></h3>
   <h3 class='text-light bg-danger mx-auto'><%= flash[:alert] %></h3>
@@ -27,5 +28,6 @@
       <%= render "layouts/footer" %>
       <!--7/25API地図の自動入力をする記述-->
       <script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>
+      <!--ここまで-->
   </body>
 </html>
